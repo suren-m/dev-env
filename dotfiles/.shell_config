@@ -1,0 +1,7 @@
+# Rust
+source "$HOME/.cargo/env"
+export PATH=$PATH:$HOME/.cargo/bin
+
+# Go and Go based tools compiled from source
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
