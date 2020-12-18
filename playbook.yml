@@ -1,0 +1,9 @@
+---
+- name: "Dev Env Setup"
+  hosts: localhost
+  connection: local
+  become: yes
+  become_method: sudo
+  
+  roles:
+  - common

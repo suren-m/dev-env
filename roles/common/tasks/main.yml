@@ -1,0 +1,89 @@
+---
+  - name: update and upgrade
+    package:
+      upgrade: yes
+      update_cache: yes
+
+  - name: build tools
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - git
+      - curl
+      - make
+      - wget
+      - libssl-dev
+      - pkg-config
+      - build-essential
+      - clang
+      - llvm
+      - lldb
+      - cmake
+      - python3-dev
+      - dpkg
+      - lsb-release
+      - software-properties-common # apt-add-repo
+      - apt-transport-https 
+ 
+  - name: terminal editors and essentials
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - vim
+      - neovim
+      - nano
+      - tmux # or dvtm
+      - fzf
+      - grep
+      - gawk
+      - sed
+      - tar
+
+  - name: utils
+    package: 
+      name: "{{ item }}"
+      state: present
+    loop:
+      - bash-completion
+      - xclip
+      - htop
+      - tree
+      - zip
+      - unzip
+      - file
+      - cron
+
+  - name: webdev tools
+    package: 
+      name: "{{ item }}"
+      state: present
+    loop:
+      - httpie
+      - jq      
+      - fonts-powerline
+      # - apache2-utils
+
+
+  - name: networking utils
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - hostname
+      - ufw
+      - net-tools
+      - dnsutils
+      - whois
+      - traceroute  
+
+
+# Tools usually pre-installed on Debian
+  # - whereis      
+  # - which
+  # - ldd
+  # - diff
+  # - cat
+  # - tac      
+  # - free
