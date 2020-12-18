@@ -1,0 +1,26 @@
+---
+  # wget "https://dl.google.com/go/$(curl https://golang.org/VERSION?m=text).linux-amd64.tar.gz"
+
+  - name: Get latest go version
+    uri: 
+      url: https://golang.org/VERSION?m=text     
+      return_content: yes
+    register: goversion
+
+  - debug: var=goversion.content
+
+  # - name: setup temp dir
+  #   file:
+  #     path: ./temp
+  #     state: directory
+
+  # - name: Download Go
+  #   get_url:
+  #     url: "https://dl.google.com/go/{{ goversion.content }}.linux-amd64.tar.gz"
+  #     dest: ./temp/go.tar.gz
+
+  - name: Download and unarchive Go
+    unarchive:
+      src: "https://dl.google.com/go/{{ goversion.content }}.linux-amd64.tar.gz"      
+      dest: /usr/local
+      remote_src: yes
