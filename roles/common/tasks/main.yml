@@ -26,6 +26,7 @@
     - apt-transport-https 
     - ca-certificates
     - gnupg2
+    - gnupg-agent # needed for docker
 
 - name: terminal editors and essentials
   package:

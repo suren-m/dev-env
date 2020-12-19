@@ -1,0 +1,50 @@
+
+- name: remove older versions
+  package: 
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - docker
+    - docker-engine
+    - docker.io
+    - containerd
+    - runc
+
+- name: add Docker's official GPG key
+  shell: curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+- name: verify key with fingerprint
+  shell: sudo apt-key fingerprint 0EBFCD88
+
+- name: setup stable repo
+  shell: |
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) \
+    stable"
+  
+- name: apt update 
+  package:
+    update_cache: yes
+    
+- name: install docker
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker-ce
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Add group "docker"
+  group:
+    name: docker
+    state: present
+
+- name: Add current user to docker group (append)
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    comment: "This may need a restart"
+    groups: docker
+    append: yes
+    

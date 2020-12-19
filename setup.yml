@@ -7,7 +7,7 @@
 
 - name: "Dev Env Setup with sudo"
   hosts: all
-  tags: root
+  tags: common
   connection: local
   become: yes
   become_method: sudo
@@ -51,3 +51,12 @@
 
   roles:  
     - other 
+
+- name: "Docker"
+  tags: docker
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  roles:  
+    - docker
