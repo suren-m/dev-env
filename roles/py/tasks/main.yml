@@ -1,5 +1,11 @@
 
 - name: pip-env
   package: 
-    name: pipenv
+    name: "{{ item }}"
     state: present
+  loop:
+    - python3-dev
+    - python3-pip
+    - virtualenv
+    - python3-setuptools
+    - pipenv

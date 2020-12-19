@@ -20,7 +20,6 @@
     - llvm
     - lldb
     - cmake
-    - python3-dev
     - dpkg
     - lsb-release
     - software-properties-common # apt-add-repo
