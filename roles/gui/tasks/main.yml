@@ -1,0 +1,10 @@
+
+
+- name: gui tools
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - guake
+    - redshift-gtk
+    

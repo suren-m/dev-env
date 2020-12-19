@@ -9,3 +9,20 @@
     url: https://cht.sh/:cht.sh
     dest: "{{ lookup('env', 'HOME') }}/bin/cht.sh"
     mode: a+x
+
+- name: fun
+  package:
+    name: "{{ item }}"
+    state: 'present'
+  loop:
+    - figlet
+    - cowsay
+    
+- name: misc tools
+  package:
+    name: "{{ item }}"
+    state: 'present'
+  loop:
+    - dialog
+    - pv
+    - nc

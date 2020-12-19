@@ -1,6 +1,12 @@
 ---
+- name: "Distro Check"
+  hosts: all
+  tags: check
+  tasks:
+    - debug: "{{ ansible_facts['distribution'] }}"
+
 - name: "Dev Env Setup with sudo"
-  hosts: localhost
+  hosts: all
   tags: root
   connection: local
   become: yes
