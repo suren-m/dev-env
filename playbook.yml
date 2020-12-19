@@ -1,6 +1,7 @@
 ---
 - name: "Dev Env Setup with sudo"
   hosts: localhost
+  tags: root
   connection: local
   become: yes
   become_method: sudo
@@ -9,11 +10,27 @@
     - common  
     - go
 
-- name: "Additional tools and config (Non Root)"
+- name: "go tools via go get (Non Root)"
+  tags: go
   hosts: localhost
   connection: local
 
   roles:
     - go_tools
+
+- name: "Rust based tools via cargo (Non Root)"
+  tags: cargo
+  hosts: localhost
+  connection: local
+
+  roles:    
+    - cargo_tools 
+    
+- name: "dotfiles and other (Non Root)"
+  tags: non-root
+  hosts: localhost
+  connection: local
+
+  roles:    
     - dotfiles
-    - other
+    - other 

@@ -1,23 +1,23 @@
-  - name: check $Home 
-    debug:
-      msg: "{{ lookup('env', 'HOME') }}"
+- name: check $Home 
+  debug:
+    msg: "{{ lookup('env', 'HOME') }}"
 
-  # - name: setup config dir
-  #    file:
-  #     path: "{{ lookup('env', 'HOME') }}/.config"
-  #     state: directory
+# - name: setup config dir
+#    file:
+#     path: "{{ lookup('env', 'HOME') }}/.config"
+#     state: directory
 
-  - name: copy bashrc
-    copy: 
-      src: ./dotfiles/.bashrc    
-      dest: "{{ lookup('env', 'HOME') }}/.bashrc"
+- name: copy bashrc
+  copy: 
+    src: ./dotfiles/.bashrc    
+    dest: "{{ lookup('env', 'HOME') }}/.bashrc"
 
-  - name: copy aliases
-    copy: 
-      src: ./dotfiles/.aliases    
-      dest: "{{ lookup('env', 'HOME') }}/.aliases"
+- name: copy aliases
+  copy: 
+    src: ./dotfiles/.aliases    
+    dest: "{{ lookup('env', 'HOME') }}/.aliases"
 
-  - name: copy shell_config
-    copy: 
-      src: ./dotfiles/.shell_config    
-      dest: "{{ lookup('env', 'HOME') }}/.shell_config"
+- name: copy shell_config
+  copy: 
+    src: ./dotfiles/.shell_config    
+    dest: "{{ lookup('env', 'HOME') }}/.shell_config"

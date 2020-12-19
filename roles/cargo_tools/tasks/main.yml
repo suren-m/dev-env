@@ -1,0 +1,13 @@
+---
+
+- name: install bat
+  shell: "cargo install bat"
+
+- name: install tokei
+  shell: "cargo install tokei --features all"
+
+- name: install pastel
+  shell: "cargo install pastel"
+
+- name: install watchexec
+  shell: "cargo install watchexec"
