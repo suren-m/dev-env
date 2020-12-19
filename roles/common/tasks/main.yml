@@ -25,6 +25,8 @@
     - lsb-release
     - software-properties-common # apt-add-repo
     - apt-transport-https 
+    - ca-certificates
+    - gnupg2
 
 - name: terminal editors and essentials
   package:
