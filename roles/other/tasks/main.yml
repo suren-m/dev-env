@@ -18,11 +18,11 @@
     - figlet
     - cowsay
     
-- name: misc tools
-  package:
-    name: "{{ item }}"
-    state: 'present'
-  loop:
-    - dialog
-    - pv
-    - nc
+# - name: misc tools
+#   package:
+#     name: "{{ item }}"
+#     state: 'present'
+#   loop:
+#     - dialog
+#     - pv
+#     - nc

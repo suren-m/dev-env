@@ -16,35 +16,38 @@
     - common  
     - go
 
+- name: "py-tools"
+  hosts: all
+  tags: py
+  become: yes
+  become_method: sudo
+  roles:  
+    - py 
+
 - name: "go tools via go get (Non Root)"
   tags: go
-  hosts: localhost
-  connection: local
+  hosts: all
 
   roles:
     - go_tools
 
 - name: "Rust based tools via cargo (Non Root)"
   tags: cargo
-  hosts: localhost
-  connection: local
+  hosts: all
 
   roles:    
     - cargo_tools 
     
 - name: "dotfiles and config (Non Root)"
   tags: dotfiles
-  hosts: localhost
-  connection: local
+  hosts: all
 
   roles:    
     - dotfiles
      
-
 - name: "Other (Non Root)"
   tags: other
-  hosts: localhost
-  connection: local
+  hosts: all
 
   roles:  
     - other 
