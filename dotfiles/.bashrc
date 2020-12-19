@@ -83,6 +83,9 @@ if [ -f ~/.shell_config ]; then
     . ~/.shell_config
 fi
 
+# bind ctrl+o to lfcd
+bind '"\C-o":"lfcd \n"'
+
 # starship prompt
 eval "$(starship init bash)"
 
