@@ -11,3 +11,6 @@
 
 - name: install watchexec
   shell: "cargo install watchexec"
+
+- name: install starship
+  shell: "cargo install starship"
