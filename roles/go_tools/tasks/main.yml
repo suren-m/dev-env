@@ -1,26 +1,26 @@
 ---
-  # wget "https://dl.google.com/go/$(curl https://golang.org/VERSION?m=text).linux-amd64.tar.gz"
+  - name: setup dir for go tools
+    file:
+      path: "{{ lookup('env', 'HOME') }}/go/src"
+      state: directory
+      # owner: "{{ lookup('env', 'USER') }}"
+      # group: "{{ lookup('env', 'USER') }}"
+      # mode: u=rwx,g=rwx,o=rwx
 
-  - name: Get latest go version
-    uri: 
-      url: https://golang.org/VERSION?m=text     
-      return_content: yes
-    register: goversion
+  - name: setup dir for go tools
+    file:
+      path: "{{ lookup('env', 'HOME') }}/go/bin"
+      state: directory
 
-  - debug: var=goversion.content
+  # - name: provide execution rights for go_tools.sh
+  #   file: 
+  #     dest: ./scripts/go_tools.sh
+  #     mode: a+x
 
-  # - name: setup temp dir
-  #   file:
-  #     path: ./temp
-  #     state: directory
+  - name: Install lazygit
+    shell: "go get github.com/jesseduffield/lazygit"
 
-  # - name: Download Go
-  #   get_url:
-  #     url: "https://dl.google.com/go/{{ goversion.content }}.linux-amd64.tar.gz"
-  #     dest: ./temp/go.tar.gz
-
-  - name: Download and unarchive Go
-    unarchive:
-      src: "https://dl.google.com/go/{{ goversion.content }}.linux-amd64.tar.gz"      
-      dest: /usr/local
-      remote_src: yes
+  - name: Install lf
+    shell: "env CGO_ENABLED=0 GO111MODULE=on go get -u -ldflags=\"-s -w\" github.com/gokcehan/lf"
+    
+      

@@ -1,2 +1,4 @@
 alias k=kubectl
 alias v=nvim
+alias lg=lazygit
+alias c=cht.sh

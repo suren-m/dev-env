@@ -1,11 +1,19 @@
 ---
-- name: "Dev Env Setup"
+- name: "Dev Env Setup with sudo"
   hosts: localhost
   connection: local
   become: yes
   become_method: sudo
   
   roles:
-  # - common
-  # - go_tools
+    - common  
+    - go
+
+- name: "Additional tools and config (Non Root)"
+  hosts: localhost
+  connection: local
+
+  roles:
+    - go_tools
     - dotfiles
+    - other
