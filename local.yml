@@ -32,11 +32,19 @@
   roles:    
     - cargo_tools 
     
-- name: "dotfiles and other (Non Root)"
-  tags: non-root
+- name: "dotfiles and config (Non Root)"
+  tags: dotfiles
   hosts: localhost
   connection: local
 
   roles:    
     - dotfiles
+     
+
+- name: "Other (Non Root)"
+  tags: other
+  hosts: localhost
+  connection: local
+
+  roles:  
     - other 
