@@ -8,3 +8,4 @@
     get_url:
       url: https://cht.sh/:cht.sh
       dest: "{{ lookup('env', 'HOME') }}/bin/cht.sh"
+      mode: a+x
