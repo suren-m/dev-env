@@ -1,0 +1,4 @@
+
+
+- name: load dconf
+  shell: "dconf load /apps/guake/ < ./dotfiles/preferences/guake.dconf"

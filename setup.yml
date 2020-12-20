@@ -60,3 +60,19 @@
 
   roles:  
     - docker
+
+- name: "gui"
+  tags: gui
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  roles:  
+    - gui
+
+- name: "dconf preferences"
+  tags: gui-dconf
+  hosts: all
+  
+  roles:
+    - gui-dconf
