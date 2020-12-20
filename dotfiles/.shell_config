@@ -1,5 +1,5 @@
 # local
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Rust
 source "$HOME/.cargo/env"
