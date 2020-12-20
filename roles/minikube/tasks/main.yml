@@ -15,3 +15,20 @@
 - name: minikube install
   apt:
     deb: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+    state: present
+
+## minikube start
+## minikube kubectl -- get po -A
+
+- name: Get latest kubectl version
+  uri: 
+    url: https://storage.googleapis.com/kubernetes-release/release/stable.txt     
+    return_content: yes
+  register: kubectl_version
+
+- name: kubectl download 
+  get_url:
+    url:  "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version.content }}/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: a+x
