@@ -47,8 +47,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" fzf shortcut
-map <s-f> <Esc><ESc>:Files!<CR>
+" fzf shortcut - exclude files in gitignore
+map <s-f> <Esc><ESc>:GFiles!<CR>
 
 " ctrl + s for save
 :nmap <c-s> :w<CR>
