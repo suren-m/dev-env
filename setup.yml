@@ -1,9 +1,14 @@
 ---
 - name: "Distro Check"
   hosts: all
-  tags: check
+  tags: test
   tasks:
-    - debug: "{{ ansible_facts['distribution'] }}"
+    - debug: 
+        msg: "{{ ansible_distribution }}"
+    - command: lsb_release -cs
+      register: dist_version
+    - debug: 
+        msg: "{{ dist_version.stdout}}"
 
 - name: "Dev Env Setup with sudo"
   hosts: all
@@ -69,6 +74,15 @@
   
   roles:  
     - minikube
+
+- name: "terraform"
+  tags: terraform
+  hosts: all
+  become: yes
+  become_method: sudo
+  
+  roles:  
+    - terraform
 
 - name: "gui"
   tags: gui
