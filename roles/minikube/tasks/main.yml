@@ -1,0 +1,17 @@
+
+#- name: minikube download
+#  get_url: 
+#    url: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+#    dest: ./tmp/
+
+#- name: install minikube using dpkg
+#  shell: "sudo dpkg -i minikube_latest_amd64.deb"
+
+#- name: remove downloaded dpgkg file
+#  file:
+#    path: ./tmp/minikube_latest_amd64.deb
+#    state: absent
+
+- name: minikube install
+  apt:
+    deb: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb

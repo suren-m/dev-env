@@ -61,6 +61,15 @@
   roles:  
     - docker
 
+- name: "minikube"
+  tags: minikube
+  hosts: all
+  become: yes
+  become_method: sudo
+  
+  roles:  
+    - minikube
+
 - name: "gui"
   tags: gui
   hosts: all
