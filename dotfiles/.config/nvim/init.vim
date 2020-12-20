@@ -50,6 +50,10 @@ map <C-l> <C-w>l
 " fzf shortcut
 map <s-f> <Esc><ESc>:Files!<CR>
 
+" ctrl + s for save
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+
 " --------------------------- "
 " recommended settings for syntastic
 set statusline+=%#warningmsg#

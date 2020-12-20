@@ -20,6 +20,7 @@
     - llvm
     - lldb
     - cmake
+    - ninja-build
     - dpkg
     - lsb-release
     - software-properties-common # apt-add-repo
@@ -79,7 +80,8 @@
     - net-tools
     - dnsutils
     - whois
-    - traceroute  
+    - traceroute
+    - rsync
 
 
 # Tools usually pre-installed on Debian

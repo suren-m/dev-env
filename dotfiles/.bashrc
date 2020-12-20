@@ -83,6 +83,10 @@ if [ -f ~/.shell_config ]; then
     . ~/.shell_config
 fi
 
+# unbind ctrl+r from terminal to enable save on vim
+bind -r '\C-s'
+stty -ixon
+
 # bind ctrl+o to lfcd
 bind '"\C-o":"lfcd \n"'
 
