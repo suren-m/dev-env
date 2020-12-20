@@ -26,7 +26,7 @@ tab-ontop=false
 use-popup=false
 
 [keybindings/local]
-new-tab='<Super>t'
+new-tab='<Primary>t'
 split-tab-vertical='<Shift><Alt>w'
 focus-terminal-right='<Shift><Alt>l'
 close-tab='<Super>w'

@@ -41,10 +41,10 @@
     name: docker
     state: present
 
-- name: Add current user to docker group (append)
-  user:
-    name: "{{ lookup('env', 'USER') }}"
-    comment: "This may need a restart"
-    groups: docker
-    append: yes
+#- name: Add current user to docker group (append)
+#  user:
+#    name: "{{ lookup('env', 'USER') }}"
+#    comment: "This may need a restart"
+#    groups: docker
+#    append: yes
     

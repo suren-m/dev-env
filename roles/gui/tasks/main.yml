@@ -5,6 +5,8 @@
     name: "{{ item }}"
     state: present
   loop:
+    - dconf-cli
     - guake
     - redshift-gtk
+    
 
