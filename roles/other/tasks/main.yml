@@ -1,13 +1,8 @@
 ---
-- name: setup local bin for user
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.local/bin"
-    state: directory
-
 - name: download cht.sh
   get_url:
     url: https://cht.sh/:cht.sh
-    dest: "{{ lookup('env', 'HOME') }}/.local/bin/"
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/cht.sh"
     mode: a+x
 
 - name: fun
