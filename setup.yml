@@ -18,6 +18,7 @@
   become_method: sudo
   
   roles:
+    - update_upgrade
     - common  
 
 - name: "latest nvim with sudo"

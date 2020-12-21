@@ -1,29 +1,33 @@
 # -----------------------------------------------------------
+# Make sure to run init.sh inside wsl2_debian folder prior to this 
 
-# Make sure to run ./init.sh inside wsl2_debian prior to this 
+# Test Run: ansible-playbook wsl2.yml --check
+# Specific Tags: ansible-playbook wsl2.yml --tags precheck 
 
-# ansible-playbook wsl2.yml 
-# ansible-playbook wsl2.yml --tags precheck
-
+# All: ansible-playbook wsl2.yml 
 # -----------------------------------------------------------
 
 ---
 - name: "Distro Check"
-  hosts: localhost
-  connection: local  
-  gather_facts: yes # needed for distro vars such as below
-  
+  hosts: all
   tags: precheck
-
+  gather_facts: yes # needed for distro vars such as below  
+  
   vars:
     distro: "{{ ansible_distribution }}"
     
-  tasks:
+  pre_tasks:
     - debug: 
         msg: "{{ distro }}"
     - command: lsb_release -cs
       register: distro_version
     - debug: 
-        msg: "{{ distro_version.stdout }}"
+        msg: var=distro_version.stdout        
 
-- name: 
+- name: "essentials via apt"
+  hosts: all
+  tags: essentials
+  become: true
+  
+  roles:
+    - update_upgrade

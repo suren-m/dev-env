@@ -1,0 +1,4 @@
+- name: update and upgrade
+  package:
+    upgrade: yes
+    update_cache: yes
