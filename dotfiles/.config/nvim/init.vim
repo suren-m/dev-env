@@ -28,11 +28,14 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'jremmen/vim-ripgrep'
 
+" Plug 'preservim/nerdtree'
+
 " impact on startup time. use only when needed
 " Plug 'preservim/tagbar'
 
 " requires nodejs 
 ":CocInstall coc-rust-analyzer
+":CocInstall coc-explorer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -88,4 +91,4 @@ nmap <F4> :lclose<CR>
 
 " Coc goto def. <C-O> to go back to previous file
 nmap <silent> gd <Plug>(coc-definition)
-
+nmap <s-e> <Esc><ESc>:CocCommand explorer<CR>
