@@ -30,6 +30,10 @@ Plug 'jremmen/vim-ripgrep'
 
 Plug 'preservim/tagbar'
 
+" requires nodejs 
+":CocInstall coc-rust-analyzer
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 "--------------------------"

@@ -1,6 +1,9 @@
 # local
 export PATH=$PATH:$HOME/.local/bin
 
+# needed for coc
+export TMPDIR="/tmp" 
+
 # Rust
 source "$HOME/.cargo/env"
 export PATH=$PATH:$HOME/.cargo/bin

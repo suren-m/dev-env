@@ -68,6 +68,8 @@
     - httpie
     - jq      
     - fonts-powerline
+    - nodejs
+    - npm
     # - apache2-utils
 
 
