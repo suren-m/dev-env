@@ -86,6 +86,6 @@ nmap <F3> :Errors<CR>
 "or SyntasticReset
 nmap <F4> :lclose<CR> 
 
-" Coc
+" Coc goto def. <C-O> to go back to previous file
 nmap <silent> gd <Plug>(coc-definition)
 
