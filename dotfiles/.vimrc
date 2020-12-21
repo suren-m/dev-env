@@ -4,7 +4,7 @@ syntax enable
 filetype plugin indent on
 
 " use spaces
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set encoding=utf-8
 
 set relativenumber
@@ -28,7 +28,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'jremmen/vim-ripgrep'
 
-Plug 'preservim/tagbar'
+" impact on startup time. use only when needed
+" Plug 'preservim/tagbar'
 
 " requires nodejs 
 ":CocInstall coc-rust-analyzer
@@ -55,14 +56,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " ------------------------- "
 " Shortcuts
 " ------------------------- "
-set pastetoggle=<f3>
+set pastetoggle=<f2>
 
 " ctrl + s for save
 :nmap <c-s> :w<CR>
@@ -78,7 +79,13 @@ map <C-l> <C-w>l
 map <s-f> <Esc><ESc>:GFiles!<CR>
 
 " tag bar
-nmap <F2> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
+
+" Syntastic
+nmap <F3> :Errors<CR>
+"or SyntasticReset
+nmap <F4> :lclose<CR> 
 
 " Coc
 nmap <silent> gd <Plug>(coc-definition)
+
