@@ -44,6 +44,7 @@
     - sed
     - tar
     - ripgrep
+    - universal-ctags
 
 - name: utils
   package: 

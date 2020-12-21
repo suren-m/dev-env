@@ -19,6 +19,15 @@
   
   roles:
     - common  
+
+- name: "Golang install"
+  hosts: all
+  tags: go
+  connection: local
+  become: yes
+  become_method: sudo
+  
+  roles:
     - go
 
 - name: "py-tools"
