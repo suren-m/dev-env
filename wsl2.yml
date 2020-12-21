@@ -1,0 +1,29 @@
+# -----------------------------------------------------------
+
+# Make sure to run ./init.sh inside wsl2_debian prior to this 
+
+# ansible-playbook wsl2.yml 
+# ansible-playbook wsl2.yml --tags precheck
+
+# -----------------------------------------------------------
+
+---
+- name: "Distro Check"
+  hosts: localhost
+  connection: local  
+  gather_facts: yes # needed for distro vars such as below
+  
+  tags: precheck
+
+  vars:
+    distro: "{{ ansible_distribution }}"
+    
+  tasks:
+    - debug: 
+        msg: "{{ distro }}"
+    - command: lsb_release -cs
+      register: distro_version
+    - debug: 
+        msg: "{{ distro_version.stdout }}"
+
+- name: 
