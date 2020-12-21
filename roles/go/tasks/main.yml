@@ -7,11 +7,15 @@
     return_content: yes
   register: goversion
 
-- debug: var=goversion.content
+- name: target go version
+  set_fact: 
+    target_version: "{{ goversion.content | default(\"go1.15.6\") }}"
+
+- debug: var=target_version
 
 - name: Download and unarchive Go
   unarchive:
-    src: "https://dl.google.com/go/{{ goversion.content }}.linux-amd64.tar.gz"      
+    src: "https://dl.google.com/go/{{ target_version }}.linux-amd64.tar.gz"      
     dest: /usr/local
     remote_src: yes
     

@@ -72,21 +72,10 @@
     - npm
     # - apache2-utils
 
-
-- name: networking utils
+- name: backup tooling
   package:
-    name: "{{ item }}"
+    name: rsync
     state: present
-  loop:
-    - hostname
-    - ufw
-    - net-tools
-    - dnsutils
-    - whois
-    - traceroute
-    - rsync
-
-
 
 # Tools usually pre-installed on Debian
 # - whereis      

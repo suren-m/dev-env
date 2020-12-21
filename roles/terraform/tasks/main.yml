@@ -1,18 +1,36 @@
+
+# only tested against debian so far
+- name: Get distro version
+  command: lsb_release -cs
+  register: distro_version
+
+- name: target distro version
+  set_fact: 
+    target_version: "{{ distro_version.content | default(\"buster\") }}"
+    distro_short: "{{ distro_short }} | default(\"deb\") }}"
+    arch: "{{ arch }} | default(\"amd64\") }}"
+
+- debug: var=target_version
+
 - name: add apt key for terraform
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg 
     state: present
+  register: hashicorp_apt_key
 
-- name: get distro version
-  command: lsb_release -cs
-  register: distro_version
-    
+- debug: var=hashicorp_apt_key
+
 - name: add hashicorp repo
   apt_repository:
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ distro_version.stdout }} main"
+    repo: "{{distro_short}} [arch={{arch}}] https://apt.releases.hashicorp.com {{target_version}} main"
+  register: hashicorp_repo
+  when: hashicorp_apt_key.changed
+
+- debug: var=hashicorp_repo
 
 - name: apt update
   apt:
     update_cache: yes
     name: terraform
+  when: hashicorp_repo.changed
 

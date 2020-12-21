@@ -1,16 +1,16 @@
-- name: setup local bin for user
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.local/bin"
-    state: directory
-
 - name: check $Home
   debug:
     msg: "{{ lookup('env', 'HOME') }}"
 
-# - name: setup config dir
-#    file:
-#     path: "{{ lookup('env', 'HOME') }}/.config"
-#     state: directory
+- name: setup config dir
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config"
+    state: directory
+
+- name: setup local bin for user
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.local/bin"
+    state: directory
 
 - name: copy bashrc
   copy:

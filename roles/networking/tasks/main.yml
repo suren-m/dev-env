@@ -1,0 +1,11 @@
+- name: networking utils
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - hostname
+    - ufw
+    - net-tools
+    - dnsutils
+    - whois
+    - traceroute

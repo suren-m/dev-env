@@ -8,25 +8,22 @@
 # -----------------------------------------------------------
 
 ---
+# only targetting debian arm64 for now
+ 
 - name: "Distro Check"
   hosts: all
   tags: precheck
-  gather_facts: yes # needed for distro vars such as below  
-  
-  vars:
-    distro: "{{ ansible_distribution }}"
-    
+  gather_facts: yes # needed for distro vars such as below   
+
   pre_tasks:
     - debug: 
-        msg: "{{ distro }}"
+        msg: "{{ ansible_distribution }}"
     - command: lsb_release -cs
       register: distro_version
     - debug: 
         msg: var=distro_version.stdout        
 
-
 # Update and Upgrade
-
 - name: "update and upgrade"
   hosts: all
   tags: update_upgrade
@@ -35,28 +32,73 @@
   roles:
     - update_upgrade
 
-
-- name: "essentials"
+# common tools
+- name: common
   hosts: all
-  tags: essentials
+  tags: common
   become: true
 
-  tasks:
-    - name: essential tools
-      package:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - git
-        - curl
-        - wget
-        - httpie
-        - build-essential
-        - vim
-        
+  roles:
+    - common
+    - py
+    
+  tasks:    
+    - include_role:
+        name: go
+      vars:
+        target_version: "go1.15.6"
     - include_role:
         name: nvim
       vars:
           target_version: "v0.4.4"
 
+# dotfiles
+- name: "dotfiles and config (Non Root)"
+  tags: dotfiles
+  hosts: all
 
+  roles:    
+    - dotfiles
+
+# Rust based tools via Cargo
+- name: "Rust based tools via cargo (Non Root)"
+  tags: cargo
+  hosts: all
+
+  roles:    
+    - cargo_tools 
+
+- name: "go tools via go get (Non Root)"
+  tags: go
+  hosts: all
+
+  roles:
+    - go_tools
+
+- name: cloud native tools
+  tags: cntools
+  hosts: all
+  become: true
+  
+  roles:  
+    - cntools
+
+- name: terraform
+  tags: terraform
+  hosts: all
+  become: true
+
+  tasks:
+  - include_role:
+      name: terraform        
+    vars:
+      distro_short: "deb"
+      arch: "amd64"
+
+  # Other 
+- name: "Other (Non Root)"
+  tags: other
+  hosts: all
+
+  roles:  
+    - other 

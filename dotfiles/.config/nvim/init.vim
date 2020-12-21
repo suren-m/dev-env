@@ -7,7 +7,7 @@ filetype plugin indent on
 set tabstop=4 shiftwidth=4 expandtab
 set encoding=utf-8
 
-set relativenumber
+set number
 
 " don't split up
 set splitbelow splitright 
