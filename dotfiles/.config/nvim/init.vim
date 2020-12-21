@@ -54,8 +54,16 @@ map <s-f> <Esc><ESc>:GFiles!<CR>
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
 
+
+"----------------------------"
+"Rust
+"----------------------------"
+let g:rustfmt_autosave = 1
+
+
 " --------------------------- "
 " recommended settings for syntastic
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
