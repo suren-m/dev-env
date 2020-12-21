@@ -22,4 +22,8 @@ sudo cp /etc/sudoers ~/backup/sudoers.orig
 # update sudoers file. (or use visudo) (-r--r-----)
 sudo cp ./patched/sudoers /etc/sudoers
 
-echo "done"
+echo 'Installed pre-requisites'
+echo '........................'
+echo "NOTE: make sure to install Rust using \"curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\""
+echo '........................'
+echo 'done'
