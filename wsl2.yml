@@ -24,10 +24,39 @@
     - debug: 
         msg: var=distro_version.stdout        
 
-- name: "essentials via apt"
+
+# Update and Upgrade
+
+- name: "update and upgrade"
   hosts: all
-  tags: essentials
+  tags: update_upgrade
   become: true
   
   roles:
     - update_upgrade
+
+
+- name: "essentials"
+  hosts: all
+  tags: essentials
+  become: true
+
+  tasks:
+    - name: essential tools
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - git
+        - curl
+        - wget
+        - httpie
+        - build-essential
+        - vim
+        
+    - include_role:
+        name: nvim
+      vars:
+          target_version: "v0.4.4"
+
+

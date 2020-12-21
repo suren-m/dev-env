@@ -4,10 +4,6 @@ export PATH=$PATH:$HOME/.local/bin
 # needed for coc
 export TMPDIR="/tmp" 
 
-# Rust
-source "$HOME/.cargo/env"
-export PATH=$PATH:$HOME/.cargo/bin
-
 # Go and Go based tools compiled from source
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin

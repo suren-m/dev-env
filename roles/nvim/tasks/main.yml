@@ -1,12 +1,21 @@
 
+- name: target nvim version
+  set_fact: 
+    target_version: "{{ target_version | default(\"v0.4.4\") }}"
+
 - name: download and extract neovim
   unarchive: 
-    src: https://github.com/neovim/neovim/releases/download/v0.4.4/nvim-linux64.tar.gz
+    src: "https://github.com/neovim/neovim/releases/download/{{target_version}}/nvim-linux64.tar.gz"
     dest: /usr/share/
     remote_src: yes
-    
+  register: nvim
+ 
+- debug:
+    msg: "{{nvim}}"
+
 - name: copy binary
   copy: 
     src: /usr/share/nvim-linux64/bin/nvim
     dest: /usr/bin/
     mode: a+x
+  when: nvim.changed
