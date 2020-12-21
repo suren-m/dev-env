@@ -20,6 +20,17 @@
   roles:
     - common  
 
+- name: "latest nvim with sudo"
+  hosts: all
+  tags: nvim
+  connection: local
+  become: yes
+  become_method: sudo
+  
+  roles:
+    - nvim  
+
+
 - name: "Golang install"
   hosts: all
   tags: go

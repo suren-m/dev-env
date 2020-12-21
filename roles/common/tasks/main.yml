@@ -35,7 +35,7 @@
     state: present
   loop:
     - vim
-    - neovim
+    # - neovim # need a later version
     - nano
     - tmux # or dvtm
     - fzf
@@ -85,6 +85,7 @@
     - whois
     - traceroute
     - rsync
+
 
 
 # Tools usually pre-installed on Debian

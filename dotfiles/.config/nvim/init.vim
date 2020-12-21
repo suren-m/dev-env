@@ -80,3 +80,5 @@ map <s-f> <Esc><ESc>:GFiles!<CR>
 " tag bar
 nmap <F2> :TagbarToggle<CR>
 
+" Coc
+nmap <silent> gd <Plug>(coc-definition)

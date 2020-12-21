@@ -1,0 +1,12 @@
+
+- name: download and extract neovim
+  unarchive: 
+    src: https://github.com/neovim/neovim/releases/download/v0.4.4/nvim-linux64.tar.gz
+    dest: /usr/share/
+    remote_src: yes
+    
+- name: copy binary
+  copy: 
+    src: /usr/share/nvim-linux64/bin/nvim
+    dest: /usr/bin/
+    mode: a+x
