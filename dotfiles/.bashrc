@@ -83,6 +83,9 @@ if [ -f ~/.shell_config ]; then
     . ~/.shell_config
 fi
 
+# For windows terminal in case this is not set
+export COLORTERM='truecolor'
+
 # unbind ctrl+r from terminal to enable save on vim
 bind -r '\C-s'
 stty -ixon

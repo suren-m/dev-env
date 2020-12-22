@@ -15,7 +15,7 @@
 - name: install starship
   shell: "cargo install starship"
 
-- name:
+- name: rust analyzer for linux
   get_url:
     url: https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux
     dest: "{{ lookup('env', 'HOME') }}/.local/bin"

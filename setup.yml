@@ -72,9 +72,11 @@
   roles:    
     - cargo_tools 
     
-- name: "Other (Non Root)"
+- name: "Other"
   tags: other
   hosts: all
+  become: yes
+  become_method: sudo
 
   roles:  
     - other 

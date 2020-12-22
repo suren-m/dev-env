@@ -4,15 +4,17 @@
     return_content: yes
   register: kubectl_version
 
-- name: target go version
+- name: target kubectl version
   set_fact: 
     target_version: "{{ kubectl_version.content | default(\"v1.20.1\") }}"
 
 - debug: var=target_version
 
-- name: kubectl download 
+- name: kubectl install 
   get_url:
-    url:  "https://storage.googleapis.com/kubernetes-release/release/{{ target_version }}/bin/linux/amd64/kubectl"
+    url:  "https://storage.googleapis.com/kubernetes-release/release/{{target_version}}/bin/linux/amd64/kubectl"
     dest: /usr/local/bin
     remote_src: yes
+    force: no
     mode: a+x
+  

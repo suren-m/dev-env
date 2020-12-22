@@ -75,14 +75,6 @@
   roles:
     - go_tools
 
-- name: cloud native tools
-  tags: cntools
-  hosts: all
-  become: true
-  
-  roles:  
-    - cntools
-
 - name: terraform
   tags: terraform
   hosts: all
@@ -96,9 +88,10 @@
       arch: "amd64"
 
   # Other 
-- name: "Other (Non Root)"
+- name: "Other"
   tags: other
   hosts: all
-
+  become: true
+  
   roles:  
     - other 
