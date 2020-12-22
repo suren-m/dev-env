@@ -35,7 +35,7 @@
     state: present
   loop:
     - vim
-    # - neovim # need a later version
+    - neovim # override after with a later version but keeping /usr/share/nvim/syntax.vim
     - nano
     - tmux # or dvtm
     - fzf
