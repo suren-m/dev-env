@@ -55,6 +55,7 @@
     name: "{{ item }}"
     state: present
   loop:
+    - man
     - bash-completion
     - xclip
     - htop
