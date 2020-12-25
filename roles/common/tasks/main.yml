@@ -64,6 +64,9 @@
     - unzip
     - file
     - cron
+    - spell
+    - wbritish
+    - wamerican
 
 - name: webdev tools
   package: 
