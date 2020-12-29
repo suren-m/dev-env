@@ -18,6 +18,12 @@
 - name: install broot
   shell: "cargo install broot"
 
+- name: install mdbook
+  shell: "cargo install mdbook"
+
+- name: install cargo-edit
+  shell: "cargo install cargo-edit"
+
 - name: rust analyzer for linux
   get_url:
     url: https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux
