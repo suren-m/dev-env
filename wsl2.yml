@@ -60,6 +60,17 @@
   roles:    
     - dotfiles
 
+- name: "install dotnet"
+  tags: dotnet
+  hosts: all
+  become: true
+  
+  tasks:
+    - include_role:
+        name: dotnet
+      vars:
+        debian_version: 10
+
 # Rust based tools via Cargo
 - name: "Rust based tools via cargo (Non Root)"
   tags: cargo

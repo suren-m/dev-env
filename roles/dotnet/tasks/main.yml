@@ -1,0 +1,16 @@
+---
+
+- name: debian version
+  set_fact: 
+    debian_version: "{{ debian_version }} | default(10) }}"
+
+- debug: var=debian_version
+
+- name: get dotnet dpkg
+  apt:
+    deb: "https://packages.microsoft.com/config/debian/{{ debian_version}}/packages-microsoft-prod.deb"
+  
+- name: install dotnet sdk
+  apt:
+    name: dotnet-sdk-5.0
+    update_cache: true
