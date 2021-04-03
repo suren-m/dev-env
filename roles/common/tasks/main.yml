@@ -19,6 +19,7 @@
     - clang
     - llvm
     - lldb
+    - gdb
     - cmake
     - ninja-build
     - dpkg
