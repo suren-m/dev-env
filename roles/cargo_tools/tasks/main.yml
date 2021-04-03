@@ -24,8 +24,8 @@
 - name: install cargo-edit
   shell: "cargo install cargo-edit"
 
-- name: install Deno
-  shell: "cargo install deno"
+# - name: install Deno
+#   shell: "cargo install deno"
 
 - name: rust analyzer for linux
   get_url:

@@ -36,7 +36,7 @@ Plug 'jremmen/vim-ripgrep'
 " requires nodejs 
 ":CocInstall coc-rust-analyzer
 ":CocInstall coc-explorer
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -82,7 +82,7 @@ map <C-l> <C-w>l
 map <s-f> <Esc><ESc>:GFiles!<CR>
 
 " tag bar
-nmap <F7> :TagbarToggle<CR>
+"nmap <F7> :TagbarToggle<CR>
 
 " Syntastic
 nmap <F3> :Errors<CR>
@@ -90,5 +90,5 @@ nmap <F3> :Errors<CR>
 nmap <F4> :lclose<CR> 
 
 " Coc goto def. <C-O> to go back to previous file
-nmap <silent> gd <Plug>(coc-definition)
-nmap <s-e> <Esc><ESc>:CocCommand explorer<CR>
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <s-e> <Esc><ESc>:CocCommand explorer<CR>

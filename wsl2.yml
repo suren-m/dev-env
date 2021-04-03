@@ -47,10 +47,10 @@
         name: go
       vars:
         target_version: "go1.15.6"
-    - include_role:
-        name: nvim
-      vars:
-          target_version: "v0.4.4"
+    # - include_role:
+    #     name: nvim
+    #   vars:
+    #       target_version: "v0.4.4"
 
 # dotfiles
 - name: "dotfiles and config (Non Root)"

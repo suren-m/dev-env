@@ -39,7 +39,7 @@
     # override after with a later version but keeping /usr/share/nvim/syntax.vim
     # this is to work around the syntax.vim not found issue
     # coc needs nvim 0.4.0 and above
-    #- neovim 
+    - neovim 
     - nano
     - tmux # or dvtm
     - fzf
