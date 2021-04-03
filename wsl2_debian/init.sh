@@ -6,19 +6,20 @@
 # Pre-requisites
 sudo apt update -y && sudo apt upgrade -y
 # python-apt needed for ansible --check
-sudo apt install -y curl git python python-apt python3 python3-pip ansible 
+sudo apt install -y openssh-client curl git wget python python-apt python3 python3-pip ansible 
 
+backup_dir="$HOME/.config/backup";
 # backup existing .bashrc
-mkdir -p ~/backup;
-cp ~/.bashrc ~/backup/.bashrc.orig
+mkdir -p $backup_dir;
+cp ~/.bashrc $backup_dir/.bashrc.orig
 
 # backup /etc/profile
-cp /etc/profile ~/backup/profile.orig
+cp /etc/profile $backup_dir/profile.orig
 # copy profile into /etc/profile (fix code not found issue due to path)
 sudo cp ./patched/profile /etc/profile
 
 # backup /etc/sudoers
-sudo cp /etc/sudoers ~/backup/sudoers.orig
+sudo cp /etc/sudoers $backup_dir/sudoers.orig
 # update sudoers file. (or use visudo) (-r--r-----)
 sudo cp ./patched/sudoers /etc/sudoers
 
