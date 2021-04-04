@@ -24,6 +24,8 @@
 - name: install cargo-edit
   shell: "cargo install cargo-edit"
 
+- name: install evcxr repl
+  shell: "cargo install evcxr_repl"
 # - name: install Deno
 #   shell: "cargo install deno"
 
