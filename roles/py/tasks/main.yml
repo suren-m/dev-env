@@ -9,3 +9,4 @@
     - virtualenv
     - python3-setuptools
     - pipenv
+    - jupyter-notebook

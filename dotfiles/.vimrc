@@ -36,7 +36,7 @@ Plug 'jremmen/vim-ripgrep'
 " requires nodejs 
 ":CocInstall coc-rust-analyzer
 ":CocInstall coc-explorer
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 

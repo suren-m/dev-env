@@ -26,6 +26,13 @@
 
 - name: install evcxr repl
   shell: "cargo install evcxr_repl"
+
+- name: install evcxr jupyter
+  shell: "cargo install evcxr_jupyter"
+
+- name: install rust kernel for jupyter
+  shell: "evcxr_jupyter --install"
+
 # - name: install Deno
 #   shell: "cargo install deno"
 
